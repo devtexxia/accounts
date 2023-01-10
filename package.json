@@ -1,0 +1,25 @@
+{
+  "name": "accounts",
+  "version": "1.0.0",
+  "description": "Accounts API",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devtexxia/accounts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devtexxia/accounts/issues"
+  },
+  "homepage": "https://github.com/devtexxia/accounts#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mocha": "^10.2.0"
+  }
+}
