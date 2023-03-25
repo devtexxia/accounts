@@ -1,30 +1,72 @@
 class AccountController {
 
-	// FACEBOOK Message Types
-	static AUDIO = 'audio';
-	static CONTEXT = 'context';
-	static DOCUMENT = 'document';
-	static IMAGE = 'image';
-	static REFERRAL = 'referral';
-	static STICKER = 'sticker';
-	static TEXT = 'text';
-	static VIDEO = 'video';
-
 	constructor(service) {
 		this.service = service;
 	}
 	
-	get(req, res, next) {
+	deleteAll(req, res, next) {
+		res.status(404).json({code:404, method:"DELETE", route:"/accounts", status:"not found"}).end();
+	}
+	
+	deleteOne(req, res, next) {
+		res.status(404).json({code:404, method:"DELETE", route:"/accounts/<id>", status:"not found"}).end();
+	}
+	
+	getAll(req, res, next) {
 		res.status(200).json({method:"GET", status:200}).end();
 	}
 	
-	post(req, res, next) {
-		if(req == undefined || req == null)
-			throw new Error('req undefined or null');
-		if(res == undefined || res == null)
-			throw new Error('res undefined or null');
-		this.#parseRequest(req);
-		res.status(200).json({method:"POST", status:200}).end();
+	getOne(req, res, next) {
+		res.status(404).json({code:404, method:"GET", route:"/accounts/<id>", status:"not found"}).end();
+	}
+	
+	headAll(req, res, next) {
+		res.status(404).json({code:404, method:"HEAD", route:"/accounts", status:"not found"}).end();
+	}
+	
+	headOne(req, res, next) {
+		res.status(404).json({code:404, method:"HEAD", route:"/accounts/<id>", status:"not found"}).end();
+	}
+	
+	optionsAll(req, res, next) {
+		res.status(404).json({code:404, method:"OPTIONS", route:"/accounts", status:"not found"}).end();
+	}
+	
+	optionsOne(req, res, next) {
+		res.status(404).json({code:404, method:"OPTIONS", route:"/accounts/<id>", status:"not found"}).end();
+	}
+	
+	patchAll(req, res, next) {
+		res.status(404).json({code:404, method:"PATCH", route:"/accounts", status:"not found"}).end();
+	}
+	
+	patchOne(req, res, next) {
+		res.status(404).json({code:404, method:"PATCH", route:"/accounts/<id>", status:"not found"}).end();
+	}
+	
+	postAll(req, res, next) {
+		try {
+			if(req == undefined || req == null)
+				throw new Error('req undefined or null');
+			if(res == undefined || res == null)
+				throw new Error('res undefined or null');
+			this.#parseRequest(req);
+			res.status(200).json({method:"POST", status:200}).end();
+		} catch (error) {
+			res.status(400).json({code:400, method:"POST", route:"/accounts/:accountId", status:"bad request"}).end();
+		}
+	}
+	
+	postOne(req, res, next) {
+		res.status(404).json({code:404, method:"POST", route:"/accounts/<id>", status:"not found"}).end();
+	}
+	
+	putAll(req, res, next) {
+		res.status(404).json({code:404, method:"PUT", route:"/accounts", status:"not found"}).end();
+	}
+	
+	putOne(req, res, next) {
+		res.status(404).json({code:404, method:"PUT", route:"/accounts/<id>", status:"not found"}).end();
 	}
 	
 	#parseRequest(req) {
