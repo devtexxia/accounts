@@ -23,16 +23,16 @@ app.head('/', (request, response, next) => {
 	response.status(404).json({code:404, method:"DELETE", route:"/", status:"not found"}).end();
 });
 app.options('/', (request, response, next) => {
-	response.status(404).json({code:404, method:"DELETE", route:"/", status:"not found"}).end();
+	response.status(404).json({code:404, method:"OPTIONS", route:"/", status:"not found"}).end();
 });
 app.patch('/', (request, response, next) => {
-	response.status(404).json({code:404, method:"DELETE", route:"/", status:"not found"}).end();
+	response.status(404).json({code:404, method:"PATCH", route:"/", status:"not found"}).end();
 });
 app.post('/', (request, response, next) => {
-	response.status(404).json({code:404, method:"DELETE", route:"/", status:"not found"}).end();
+	response.status(404).json({code:404, method:"POST", route:"/", status:"not found"}).end();
 });
 app.put('/', (request, response, next) => {
-	response.status(404).json({code:404, method:"DELETE", route:"/", status:"not found"}).end();
+	response.status(404).json({code:404, method:"PUT", route:"/", status:"not found"}).end();
 });
 
 let repository = new AccountRepository({});
